@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 240" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+
+    <!-- Accent Gradient -->
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
+    </pattern>
+
+    <!-- Glowing Filters -->
+    <filter id="glowBlue" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    
+    <filter id="glowSubtle" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <style>
+      .title {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-size: 38px;
+        font-weight: 800;
+        fill: url(#textGrad);
+      }
+      .subtitle {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        fill: #94a3b8;
+      }
+      .pill-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        fill: #38bdf8;
+      }
+      
+      /* CSS Animations */
+      @keyframes floatNode1 {
+        0%, 100% { transform: translateY(0px) scale(1); }
+        50% { transform: translateY(-12px) scale(1.05); }
+      }
+      @keyframes floatNode2 {
+        0%, 100% { transform: translateY(0px) scale(1); }
+        50% { transform: translateY(10px) scale(0.95); }
+      }
+      @keyframes rotateWheel {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 0.7; }
+      }
+
+      .node-1 { animation: floatNode1 6s ease-in-out infinite; }
+      .node-2 { animation: floatNode2 8s ease-in-out infinite; }
+      .wheel { transform-origin: 790px 120px; animation: rotateWheel 25s linear infinite; }
+      .glow-bg { animation: pulseGlow 4s ease-in-out infinite; }
+    </style>
+  </defs>
+
+  <!-- Base Card Background -->
+  <rect width="900" height="240" rx="16" fill="url(#bgGrad)"/>
+  <rect width="900" height="240" rx="16" fill="url(#grid)"/>
+
+  <!-- Background Dynamic Glowing Orbs -->
+  <circle cx="150" cy="60" r="100" fill="#3b82f6" opacity="0.15" class="glow-bg" filter="url(#glowBlue)"/>
+  <circle cx="750" cy="180" r="120" fill="#8b5cf6" opacity="0.15" class="glow-bg" filter="url(#glowBlue)"/>
+
+  <!-- Kubernetes Wheel Icon Graphic (Right Side Background) -->
+  <g class="wheel" opacity="0.25">
+    <circle cx="790" cy="120" r="70" stroke="#38bdf8" stroke-width="4" fill="none"/>
+    <circle cx="790" cy="120" r="25" fill="#38bdf8"/>
+    <!-- Spokes -->
+    <path d="M 790 50 L 790 190 M 720 120 L 860 120 M 740 70 L 840 170 M 740 170 L 840 70" stroke="#38bdf8" stroke-width="4"/>
+    <circle cx="790" cy="50" r="8" fill="#818cf8"/>
+    <circle cx="790" cy="190" r="8" fill="#818cf8"/>
+    <circle cx="720" cy="120" r="8" fill="#818cf8"/>
+    <circle cx="860" cy="120" r="8" fill="#818cf8"/>
+    <circle cx="740" cy="70" r="8" fill="#818cf8"/>
+    <circle cx="840" cy="170" r="8" fill="#818cf8"/>
+    <circle cx="740" cy="170" r="8" fill="#818cf8"/>
+    <circle cx="840" cy="70" r="8" fill="#818cf8"/>
+  </g>
+
+  <!-- Animated Floating Cluster Nodes -->
+  <g class="node-1">
+    <rect x="680" y="45" width="110" height="34" rx="8" fill="rgba(15, 23, 42, 0.8)" stroke="#38bdf8" stroke-width="1.5" filter="url(#glowSubtle)"/>
+    <circle cx="698" cy="62" r="5" fill="#10b981"/>
+    <text x="712" y="66" font-family="-apple-system, sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">EKS / GKE</text>
+  </g>
+
+  <g class="node-2">
+    <rect x="730" y="155" width="110" height="34" rx="8" fill="rgba(15, 23, 42, 0.8)" stroke="#818cf8" stroke-width="1.5" filter="url(#glowSubtle)"/>
+    <circle cx="748" cy="172" r="5" fill="#3b82f6"/>
+    <text x="762" y="176" font-family="-apple-system, sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">k3s / Talos</text>
+  </g>
+
+  <!-- Foreground Content Layer (Always Crisp & Unobstructed) -->
+  <g transform="translate(50, 0)">
+    <!-- Category Tag / Pill -->
+    <rect x="0" y="42" width="180" height="26" rx="13" fill="rgba(56, 189, 248, 0.1)" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1"/>
+    <text x="14" y="59" class="pill-text">☸️ KUBERNETES ECOSYSTEM</text>
+
+    <!-- Main Title -->
+    <text x="0" y="112" class="title" filter="url(#glowSubtle)">Awesome Managed K8s</text>
+
+    <!-- Subtitle -->
+    <text x="0" y="148" class="subtitle">Curated Guide to Managed Kubernetes Services, Control Planes &amp; OS Tools</text>
+
+    <!-- Badges Row in Banner -->
+    <g transform="translate(0, 172)">
+      <!-- Badge 1 -->
+      <rect x="0" y="0" width="110" height="24" rx="6" fill="#1e293b"/>
+      <text x="10" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#cbd5e1">☁️ SaaS Managed</text>
+
+      <!-- Badge 2 -->
+      <rect x="120" y="0" width="125" height="24" rx="6" fill="#1e293b"/>
+      <text x="130" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#cbd5e1">⚡ Self-Hosted K8s</text>
+
+      <!-- Badge 3 -->
+      <rect x="255" y="0" width="125" height="24" rx="6" fill="#1e293b"/>
+      <text x="265" y="16" font-family="-apple-system, sans-serif" font-size="11" fill="#cbd5e1">🛠️ Cluster Lifecycle</text>
+    </g>
+  </g>
+</svg>
