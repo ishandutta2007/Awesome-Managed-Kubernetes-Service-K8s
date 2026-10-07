@@ -65,7 +65,7 @@ The table below lists top managed Kubernetes providers, **sorted in descending o
 
 ## 📦 Open-Source GitHub Projects
 
-Below is a comprehensive list of top open-source projects for running, managing, and developing on Kubernetes, **sorted in descending order by GitHub star count**:
+Below is a comprehensive list of top open-source projects for running, managing, and developing on Kubernetes, **sorted in descending order by GitHub Stars_Count**:
 
 ### ☸️ Core Distributions & Bootstrapping
 
@@ -167,7 +167,7 @@ Contributions are welcome! If you know of a managed Kubernetes service or open-s
 
 1. **Fork** this repository.
 2. Add or update entries in `README.md` keeping formatting consistent.
-3. Ensure pricing, free tiers, and star counts are accurate and verifiable.
+3. Ensure pricing, free tiers, and Stars_Counts are accurate and verifiable.
 4. Submit a **Pull Request** with a brief summary of additions.
 
 See our curated list collection at [Awesome-Awesome-Awesome](https://github.com/ishandutta2007/Awesome-Awesome-Awesome).
